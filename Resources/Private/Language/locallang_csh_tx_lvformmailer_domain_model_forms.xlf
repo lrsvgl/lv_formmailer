@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-01-15T15:29:50Z" product-name="lv_formmailer">
+		<header/>
+		<body>
+
+			<trans-unit id="formname.description">
+				<source>formular name</source>
+			</trans-unit>
+			<trans-unit id="senderemail.description">
+				<source>sender name</source>
+			</trans-unit>
+			<trans-unit id="sendername.description">
+				<source>sender name</source>
+			</trans-unit>
+			<trans-unit id="receiveremail.description">
+				<source>receiver email</source>
+			</trans-unit>
+			<trans-unit id="receivername.description">
+				<source>receiver name</source>
+			</trans-unit>
+			<trans-unit id="subject.description">
+				<source>subject</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

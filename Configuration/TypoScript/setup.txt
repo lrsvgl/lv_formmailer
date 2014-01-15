@@ -1,0 +1,39 @@
+plugin.tx_lvformmailer {
+	view {
+		templateRootPath = {$plugin.tx_lvformmailer.view.templateRootPath}
+		partialRootPath = {$plugin.tx_lvformmailer.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_lvformmailer.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_lvformmailer.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+}
+
+plugin.tx_lvformmailer._CSS_DEFAULT_STYLE (
+	textarea.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-lv-formmailer table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-lv-formmailer table th {
+		font-weight:bold;
+	}
+
+	.tx-lv-formmailer table td {
+		vertical-align:top;
+	}
+)

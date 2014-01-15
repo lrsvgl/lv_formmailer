@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-01-15T15:29:50Z" product-name="lv_formmailer">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_lvformmailer_domain_model_forms">
+				<source>Formular</source>
+			</trans-unit>
+			<trans-unit id="tx_lvformmailer_domain_model_forms.formname">
+				<source>formular name</source>
+			</trans-unit>
+			<trans-unit id="tx_lvformmailer_domain_model_forms.senderemail">
+				<source>sender name</source>
+			</trans-unit>
+			<trans-unit id="tx_lvformmailer_domain_model_forms.sendername">
+				<source>sender name</source>
+			</trans-unit>
+			<trans-unit id="tx_lvformmailer_domain_model_forms.receiveremail">
+				<source>receiver email</source>
+			</trans-unit>
+			<trans-unit id="tx_lvformmailer_domain_model_forms.receivername">
+				<source>receiver name</source>
+			</trans-unit>
+			<trans-unit id="tx_lvformmailer_domain_model_forms.subject">
+				<source>subject</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_lvformmailer_domain_model_mails">
+				<source>Mails</source>
+			</trans-unit>
+			<trans-unit id="tx_lvformmailer_domain_model_mails.sendername">
+				<source>sender name</source>
+			</trans-unit>
+			<trans-unit id="tx_lvformmailer_domain_model_mails.senderemail">
+				<source>sender email</source>
+			</trans-unit>
+			<trans-unit id="tx_lvformmailer_domain_model_mails.subject">
+				<source>subject</source>
+			</trans-unit>
+			<trans-unit id="tx_lvformmailer_domain_model_mails.body">
+				<source>body</source>
+			</trans-unit>
+			
+		</body>
+	</file>
+</xliff>

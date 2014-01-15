@@ -1,0 +1,46 @@
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<h1>Listing for Formular</h1>
+
+<f:flashMessages />
+
+<table  class="tx_lvformmailer" >
+	<tr>
+		<th><f:translate key="tx_lvformmailer_domain_model_formular.formname" /></th>
+		<th><f:translate key="tx_lvformmailer_domain_model_formular.senderemail" /></th>
+		<th><f:translate key="tx_lvformmailer_domain_model_formular.sendername" /></th>
+		<th><f:translate key="tx_lvformmailer_domain_model_formular.receiveremail" /></th>
+		<th><f:translate key="tx_lvformmailer_domain_model_formular.receivername" /></th>
+		<th><f:translate key="tx_lvformmailer_domain_model_formular.subject" /></th>
+		<th> </th>
+		<th> </th>
+	</tr>
+
+	<f:for each="{formulars}" as="formular">
+		<tr>
+			<td><f:link.action action="show" arguments="{formular : formular}"> {formular.formname}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{formular : formular}"> {formular.senderemail}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{formular : formular}"> {formular.sendername}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{formular : formular}"> {formular.receiveremail}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{formular : formular}"> {formular.receivername}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{formular : formular}"> {formular.subject}</f:link.action></td>
+			<td><f:link.action action="edit" arguments="{formular : formular}">Edit</f:link.action></td>
+			<td><f:link.action action="delete" arguments="{formular : formular}">Delete</f:link.action></td>
+		</tr>
+	</f:for>
+</table>
+
+<f:link.action action="new">New Formular</f:link.action>
+</f:section>
