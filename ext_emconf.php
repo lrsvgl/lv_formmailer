@@ -11,8 +11,8 @@
  ***************************************************************/
 
 $EM_CONF[$_EXTKEY] = array(
-	'title' => 'Formularmailer',
-	'description' => 'Formularmailer',
+	'title' => 'Formmailer',
+	'description' => 'Formmailer',
 	'category' => 'plugin',
 	'author' => '',
 	'author_email' => '',

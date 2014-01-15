@@ -5,9 +5,9 @@ if (!defined('TYPO3_MODE')) {
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
 	'TYPO3.' . $_EXTKEY,
-	'Forms',
+	'Formmailer',
 	array(
-		'Forms' => 'list, show, create, edit, update, delete',
+		'Forms' => 'show, list, create, edit, update, delete',
 		
 	),
 	// non-cacheable actions

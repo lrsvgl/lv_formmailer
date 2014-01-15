@@ -5,11 +5,11 @@ if (!defined('TYPO3_MODE')) {
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	$_EXTKEY,
-	'Forms',
-	'Forms'
+	'Formmailer',
+	'Formmailer'
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Formularmailer');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Formmailer');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_lvformmailer_domain_model_forms', 'EXT:lv_formmailer/Resources/Private/Language/locallang_csh_tx_lvformmailer_domain_model_forms.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_lvformmailer_domain_model_forms');
@@ -68,5 +68,7 @@ $TCA['tx_lvformmailer_domain_model_mails'] = array(
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_lvformmailer_domain_model_mails.gif'
 	),
 );
-
+$pluginSignature = str_replace('_', '', $_EXTKEY) . '_formmailer';
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+t3lib_extMgm::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_formmailer.xml');
 ?>

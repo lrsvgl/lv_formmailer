@@ -28,7 +28,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		<th> </th>
 	</tr>
 
-	<f:for each="{formss}" as="forms">
+	<f:for each="{forms}" as="form">
 		<tr>
 			<td><f:link.action action="show" arguments="{forms : forms}"> {forms.formname}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{forms : forms}"> {forms.senderemail}</f:link.action></td>

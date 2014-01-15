@@ -47,7 +47,14 @@ class FormsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @param TYPO3\LvFormmailer\Domain\Model\Forms
 	 * @return void
 	 */
-	public function showAction(\TYPO3\LvFormmailer\Domain\Model\Forms $forms) {
+	public function showAction() {
+            
+                $form_id = $this->settings['forms'];
+                
+                //var_dump($this->settings);
+                //die("showAchtion Forms");
+                
+                $forms = $this->formsRepository->findOneByUid($form_id);
 		$this->view->assign('forms', $forms);
 	}
 
@@ -59,7 +66,7 @@ class FormsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 	public function listAction() {
 		$formss = $this->formsRepository->findAll();
-		$this->view->assign('formss', $formss);
+		$this->view->assign('forms', $forms);
 	}
 
 	/**

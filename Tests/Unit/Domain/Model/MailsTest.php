@@ -32,7 +32,7 @@ namespace TYPO3\LvFormmailer\Tests;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  * @package TYPO3
- * @subpackage Formularmailer
+ * @subpackage Formmailer
  *
  */
 class MailsTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {

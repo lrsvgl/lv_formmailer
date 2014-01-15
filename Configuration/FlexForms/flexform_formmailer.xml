@@ -1,0 +1,47 @@
+
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Extension</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <switchableControllerActions>
+                        <TCEforms>
+                            <label>Standardaktion des Plugins</label> 
+                            <config>
+                                <type>select</type>
+                                <items> 
+
+                                    <numIndex index="0">
+                                        <numIndex index="0">Form</numIndex>
+                                        <numIndex index="1">Forms->show</numIndex>
+                                    </numIndex>
+
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </switchableControllerActions>
+                    <settings.forms>
+                        <TCEforms>
+                            <label>Standardaktion des Plugins</label> 
+                            <config>
+                                <label>Standardaktion des Plugins</label> 
+                                <type>select</type>
+                                <foreign_table>tx_lvformmailer_domain_model_forms</foreign_table>
+                                <minitems>1</minitems>
+                                <maxitems>10</maxitems>
+                                <multiple>1</multiple>
+                                <size>5</size>
+                                <autoSizeMax>10</autoSizeMax>
+                                <itemListStyle>Width:250px</itemListStyle>
+                            </config>
+                        </TCEforms>
+                    </settings.forms>
+                </el>
+            </ROOT>
+        </sDEF> 
+    </sheets>
+</T3DataStructure> 
