@@ -81,6 +81,14 @@ class Forms extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $subject;
 
 	/**
+	 * Artikel
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\LvFormmailer\Domain\Model\Articles>
+	 * @lazy
+	 */
+	protected $article;
+
+	/**
 	 * Returns the formname
 	 *
 	 * @return \string $formname
@@ -192,6 +200,69 @@ class Forms extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setSubject($subject) {
 		$this->subject = $subject;
+	}
+
+	/**
+	 * __construct
+	 *
+	 * @return Forms
+	 */
+	public function __construct() {
+		//Do not remove the next line: It would break the functionality
+		$this->initStorageObjects();
+	}
+
+	/**
+	 * Initializes all ObjectStorage properties.
+	 *
+	 * @return void
+	 */
+	protected function initStorageObjects() {
+		/**
+		 * Do not modify this method!
+		 * It will be rewritten on each save in the extension builder
+		 * You may modify the constructor of this class instead
+		 */
+		$this->article = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+	}
+
+	/**
+	 * Adds a Articles
+	 *
+	 * @param \TYPO3\LvFormmailer\Domain\Model\Articles $article
+	 * @return void
+	 */
+	public function addArticle(\TYPO3\LvFormmailer\Domain\Model\Articles $article) {
+		$this->article->attach($article);
+	}
+
+	/**
+	 * Removes a Articles
+	 *
+	 * @param \TYPO3\LvFormmailer\Domain\Model\Articles $articleToRemove The Articles to be removed
+	 * @return void
+	 */
+	public function removeArticle(\TYPO3\LvFormmailer\Domain\Model\Articles $articleToRemove) {
+		$this->article->detach($articleToRemove);
+	}
+
+	/**
+	 * Returns the article
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\LvFormmailer\Domain\Model\Articles> $article
+	 */
+	public function getArticle() {
+		return $this->article;
+	}
+
+	/**
+	 * Sets the article
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\LvFormmailer\Domain\Model\Articles> $article
+	 * @return void
+	 */
+	public function setArticle(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $article) {
+		$this->article = $article;
 	}
 
 }

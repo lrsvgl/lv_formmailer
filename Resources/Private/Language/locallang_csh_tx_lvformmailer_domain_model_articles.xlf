@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-01-16T12:43:05Z" product-name="lv_formmailer">
+		<header/>
+		<body>
+
+			<trans-unit id="title.description">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="subtitle.description">
+				<source>Untertitel</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="price.description">
+				<source>Preis</source>
+			</trans-unit>
+			<trans-unit id="image.description">
+				<source>Bild</source>
+			</trans-unit>
+			<trans-unit id="cat.description">
+				<source>Kategorie</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

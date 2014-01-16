@@ -1,0 +1,46 @@
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<h1>Listing for Artikel</h1>
+
+<f:flashMessages />
+
+<table  class="tx_lvformmailer" >
+	<tr>
+		<th><f:translate key="tx_lvformmailer_domain_model_artikel.title" /></th>
+		<th><f:translate key="tx_lvformmailer_domain_model_artikel.subtitle" /></th>
+		<th><f:translate key="tx_lvformmailer_domain_model_artikel.description" /></th>
+		<th><f:translate key="tx_lvformmailer_domain_model_artikel.price" /></th>
+		<th><f:translate key="tx_lvformmailer_domain_model_artikel.image" /></th>
+		<th><f:translate key="tx_lvformmailer_domain_model_artikel.cat" /></th>
+		<th> </th>
+		<th> </th>
+	</tr>
+
+	<f:for each="{artikels}" as="artikel">
+		<tr>
+			<td><f:link.action action="show" arguments="{artikel : artikel}"> {artikel.title}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{artikel : artikel}"> {artikel.subtitle}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{artikel : artikel}"> {artikel.description}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{artikel : artikel}"> {artikel.price}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{artikel : artikel}"> {artikel.image}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{artikel : artikel}"> {artikel.cat}</f:link.action></td>
+			<td><f:link.action action="edit" arguments="{artikel : artikel}">Edit</f:link.action></td>
+			<td><f:link.action action="delete" arguments="{artikel : artikel}">Delete</f:link.action></td>
+		</tr>
+	</f:for>
+</table>
+
+<f:link.action action="new">New Artikel</f:link.action>
+</f:section>

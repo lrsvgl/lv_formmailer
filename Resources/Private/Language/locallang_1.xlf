@@ -5,68 +5,68 @@
 		<body>
 
 			<trans-unit id="tx_lvformmailer_domain_model_forms">
-				<source>Forms</source>
+				<source>Formular</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_forms.formname">
-				<source>Formname</source>
+				<source>formular name</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_forms.senderemail">
-				<source>Senderemail</source>
+				<source>sender name</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_forms.sendername">
-				<source>Sendername</source>
+				<source>sender name</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_forms.receiveremail">
-				<source>Receiveremail</source>
+				<source>receiver email</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_forms.receivername">
-				<source>Receivername</source>
+				<source>receiver name</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_forms.subject">
-				<source>Subject</source>
+				<source>subject</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_forms.article">
-				<source>Article</source>
+				<source>Artikel</source>
 			</trans-unit>
-
+			
 			<trans-unit id="tx_lvformmailer_domain_model_mails">
 				<source>Mails</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_mails.sendername">
-				<source>Sendername</source>
+				<source>sender name</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_mails.senderemail">
-				<source>Senderemail</source>
+				<source>sender email</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_mails.subject">
-				<source>Subject</source>
+				<source>subject</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_mails.body">
-				<source>Body</source>
+				<source>body</source>
 			</trans-unit>
-
+			
 			<trans-unit id="tx_lvformmailer_domain_model_articles">
 				<source>Articles</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_articles.title">
-				<source>Title</source>
+				<source>Name</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_articles.subtitle">
-				<source>Subtitle</source>
+				<source>Untertitel</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_articles.description">
-				<source>Description</source>
+				<source>Beschreibung</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_articles.price">
-				<source>Price</source>
+				<source>Preis</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_articles.image">
-				<source>Image</source>
+				<source>Bild</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_articles.cat">
-				<source>Cat</source>
+				<source>Kategorie</source>
 			</trans-unit>
-
+			
 		</body>
 	</file>
 </xliff>

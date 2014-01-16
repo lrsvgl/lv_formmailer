@@ -151,5 +151,63 @@ class FormsTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 		);
 	}
 	
+	/**
+	 * @test
+	 */
+	public function getArticleReturnsInitialValueForArticles() { 
+		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->fixture->getArticle()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setArticleForObjectStorageContainingArticlesSetsArticle() { 
+		$article = new \TYPO3\LvFormmailer\Domain\Model\Articles();
+		$objectStorageHoldingExactlyOneArticle = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$objectStorageHoldingExactlyOneArticle->attach($article);
+		$this->fixture->setArticle($objectStorageHoldingExactlyOneArticle);
+
+		$this->assertSame(
+			$objectStorageHoldingExactlyOneArticle,
+			$this->fixture->getArticle()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function addArticleToObjectStorageHoldingArticle() {
+		$article = new \TYPO3\LvFormmailer\Domain\Model\Articles();
+		$objectStorageHoldingExactlyOneArticle = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$objectStorageHoldingExactlyOneArticle->attach($article);
+		$this->fixture->addArticle($article);
+
+		$this->assertEquals(
+			$objectStorageHoldingExactlyOneArticle,
+			$this->fixture->getArticle()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeArticleFromObjectStorageHoldingArticle() {
+		$article = new \TYPO3\LvFormmailer\Domain\Model\Articles();
+		$localObjectStorage = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$localObjectStorage->attach($article);
+		$localObjectStorage->detach($article);
+		$this->fixture->addArticle($article);
+		$this->fixture->removeArticle($article);
+
+		$this->assertEquals(
+			$localObjectStorage,
+			$this->fixture->getArticle()
+		);
+	}
+	
 }
 ?>

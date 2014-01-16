@@ -43,6 +43,14 @@ class FormsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     protected $formsRepository;
 
     /**
+     * articlesRepository
+     *
+     * @var \TYPO3\LvFormmailer\Domain\Repository\ArticlesRepository
+     * @inject
+     */
+    protected $articlesRepository;
+
+    /**
      * sessionHandler
      *
      * @var \TYPO3\LvFormmailer\Domain\Session\SessionHandler
@@ -60,6 +68,13 @@ class FormsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         $form_id = $this->settings['forms'];
         $forms = $this->formsRepository->findOneByUid($form_id);
+        $submit = $_REQUEST['submit'];
+        $showform  = 1;
+
+        // Article
+        $cat_1 = $this->articlesRepository->findByCat(1);
+        $cat_2 = $this->articlesRepository->findByCat(2);
+        $cat_3 = $this->articlesRepository->findByCat(3);
 
         // Mail
         $mail['senderemail'] = $forms->getSenderemail();
@@ -70,11 +85,14 @@ class FormsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $mail['body'] = "";
 
         //var_dump($mail);
-        $form = $this->request->getArguments('form');
-        $form = $form['form'];
+        $arg = $this->request->getArguments('form');
+        $form = $arg['form'];
+        $article = $arg['article'];
+        $total = $arg['total'];
 
-        if ($form) {
-            
+        //var_dump($arg);
+
+        if ($submit) {
 
             $session = array();
             $session['form'] = $form;
@@ -82,20 +100,62 @@ class FormsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
             // Mailbody
             $mail['body'] .= '<html><head>
-                                <style type="text/css">'.$this->mailCss().'</style>
-                              </head>';
+		                 <style type="text/css">' . $this->mailCss() . '</style>
+		                </head>
+                              <body>';
+
+            // Daten
+            $mail['body'] .= '<h2>' . \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_lvformmailer_domain_model_forms.data', 'lv_formmailer') . '</h2>';
             $mail['body'] .= '<table>';
-            //$mail['body'] .= '<tr><th>A</th><th>B</th></tr>';
-            $mail['body'] .= '<h2>Ihre Daten</h2>';
             for ($i = 0; $i < count($form); $i++) {
                 $marker = array_keys($form);
                 $value = array_values($form);
                 $mail['body'] .= '<tr>';
-                $mail['body'] .= '<td class="col-1">'.ucfirst($marker[$i]).'</td>';
-                $mail['body'] .= '<td class="col-2">'.$value[$i].'</td>';
+                $mail['body'] .= '<td class="col-1"><b>' . ucfirst($marker[$i]) . '</b>: </td>';
+                $mail['body'] .= '<td class="col-2">' . $value[$i] . '</td>';
                 $mail['body'] .= '</tr>';
             }
+            $mail['body'] .= '</table><br><br>';
+
+
+            // Artikel
+            $mail['body'] .= '<h2>' . \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_lvformmailer_domain_model_forms.article', 'lv_formmailer') . '</h2>';
+            $mail['body'] .= '<table class="order">';
+            $mail['body'] .= '<tr><th>Artikel</th><th>Menge</th><th>Preis</th><th>Kosten</th></tr>';
+
+            for ($i = 0; $i < count($article); $i++) {
+                for ($j = 0; $j < count($article[$i]); $j++) {
+                    $mail['body'] .= '<tr>';
+                    $mail['body'] .= '<td class="col-1" style="width:300px;"><b>' . $article[$i][$j]['title'] . '</b><br>' . $article[$i][$j]['subtitle'] . '</td>';
+                    $mail['body'] .= '<td class="col-2" style="text-align:right; width:80px;">' . $article[$i][$j]['amount'] . '</td>';
+                    $mail['body'] .= '<td class="col-3" style="text-align:right; width:80px;">' . $this->makeCurrency($article[$i][$j]['price']) . ' €</td>';
+                    $mail['body'] .= '<td class="col-4" style="text-align:right; width:80px;">' . $this->makeCurrency($article[$i][$j]['price']*$article[$i][$j]['amount']) . ' €</td>';
+                    $mail['body'] .= '</tr>';
+                }
+            }
+            $mail['body'] .= '<tr><td class="sep"><br></td></tr>';
+            // Kosten
+            $mail['body'] .= '<tr>';
+            $mail['body'] .= '<td class="col-1" colspan="3">' . \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_lvformmailer_domain_model_forms.netto', 'lv_formmailer') . '</td>';
+            $mail['body'] .= '<td class="col-2" style="text-align:right;">' . $this->makeCurrency($total['netto']) . '</td>';
+            $mail['body'] .= '</tr>';
+            $mail['body'] .= '<tr>';
+            $mail['body'] .= '<td class="col-1" colspan="3">' . \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_lvformmailer_domain_model_forms.shipping', 'lv_formmailer') . '</td>';
+            $mail['body'] .= '<td class="col-2" style="text-align:right;">' . $this->makeCurrency($total['shipping']) . '</td>';
+            $mail['body'] .= '</tr>';
+            $mail['body'] .= '<tr>';
+            $mail['body'] .= '<td class="col-1" colspan="3">' . \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_lvformmailer_domain_model_forms.vat', 'lv_formmailer') . '</td>';
+            $mail['body'] .= '<td class="col-2" style="text-align:right;">' . $this->makeCurrency($total['vat']) . '</td>';
+            $mail['body'] .= '</tr>';
+            $mail['body'] .= '<tr>';
+            $mail['body'] .= '<td class="col-1" colspan="3"><b>' . \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_lvformmailer_domain_model_forms.brutto', 'lv_formmailer') . '</b></td>';
+            $mail['body'] .= '<td class="col-2" style="text-align:right;"><b>' . $this->makeCurrency($total['brutto']) . '</b></td>';
+            $mail['body'] .= '</tr>';
+
             $mail['body'] .= '</table>';
+
+            // Kosten
+
             $mail['body'] .= '</body></html>';
 
             // Marker fuellen
@@ -116,20 +176,25 @@ class FormsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             $message->setFrom(array($mail['senderemail'] => $mail['sendername']))
                     ->setTo(array($mail['receiveremail'] => $mail['receivername']))
                     ->setSubject($mail['subject'])
-                    ->setBody($mail['body'],'text/html');
+                    ->setBody($mail['body'], 'text/html');
             $message->send();
             if ($message->isSent()) {
-                $this->flashMessageContainer->add('Mail erfolgreich versandt');
+                $this->flashMessageContainer->add(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_lvformmailer_domain_model_forms.success', 'lv_formmailer'));
+                $showform = 0;
             } else {
-                $this->flashMessageContainer->add('Die Mail wurde nicht versandt.');
+                $this->flashMessageContainer->add(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_lvformmailer_domain_model_forms.error', 'lv_formmailer'));
+                $showform = 1;
             }
         }
-
 
         //var_dump($this->settings);
         //die("showAchtion Forms");
         $this->view->assign('uid', $form_id);
         $this->view->assign('forms', $forms);
+        $this->view->assign('showform', $showform);
+        $this->view->assign('cat_1', $cat_1);
+        $this->view->assign('cat_2', $cat_2);
+        $this->view->assign('cat_3', $cat_3);
     }
 
     /**
@@ -199,41 +264,58 @@ class FormsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $this->flashMessageContainer->add('Your Forms was removed.');
         $this->redirect('list');
     }
-    
-    public function mailCss() {
-        $css ="
-            body {
-                font-family: Arial, sans serif;
-                font-size: 13px;
-                color: #000;
-            }
-            h1 {
-                font-size: 16px;
-                font-weight: bold;
-            }
-            h2 {
-                font-size: 14px;
-                font-weight: bold;
-            }
-            table {
-                border: 0;
-                width: 300px;
-            }
-            table th {
-                font-weight: bold;
-                text-align: center;
-                background: #f5f5f5;
-            }
-            table td {
-                padding: 0 5px 5px 0;
-            }
 
-            ";
-        
-        
+    /**
+     * mailCss
+     *
+     * @return
+     */
+    public function mailCss() {
+        $css = "
+		            body {
+		                font-family: Arial, sans serif;
+		                font-size: 13px;
+		                color: #000;
+		            }
+		            h1 {
+		                font-size: 16px;
+		                font-weight: bold;
+		            }
+		            h2 {
+		                font-size: 14px;
+		                font-weight: bold;
+		            }
+                            table h2 {
+		                border: 0;
+		                width: 300px;
+                                margin: 0;
+                                padding: 0;
+		            }
+		            table {
+		                border: 0;
+		                width: 300px;
+		            }
+		            table th {
+		                font-weight: bold;
+		                text-align: center;
+		                background: #f5f5f5;
+		            }
+		            table td {
+		                padding: 0 5px 5px 0;
+		            }
+		
+		            ";
+
         return $css;
     }
 
-}
 
+    public function makeCurrency($num) {
+        $pattern = '/\./';
+        $replace = ",";
+        $html= preg_replace($pattern, $replace, $num);
+        return $html;
+    }
+
+}
 ?>

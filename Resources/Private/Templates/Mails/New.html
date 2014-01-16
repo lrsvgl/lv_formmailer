@@ -18,7 +18,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:render partial="FormErrors" arguments="{object:Mails}"/>
 
-<f:form action="create"  name="newMails" object="{newMails}">
+<f:form action="create"  enctype="multipart/form-data"  name="newMails" object="{newMails}">
 <f:render partial="Mails/FormFields" />
 	<f:form.submit value="Create new" />
 </f:form>
