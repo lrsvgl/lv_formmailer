@@ -3,6 +3,8 @@
 ========================
 ext_localconf.php
 ========================
+           
+        
 if (!is_array($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['lvformmailer_cache'])) {
     $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['lvformmailer_cache'] = array();
 }

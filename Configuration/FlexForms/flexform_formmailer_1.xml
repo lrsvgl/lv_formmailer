@@ -8,7 +8,6 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
-                    <!--
                     <switchableControllerActions>
                         <TCEforms>
                             <label>Standardaktion des Plugins</label> 
@@ -27,7 +26,6 @@
                             </config>
                         </TCEforms>
                     </switchableControllerActions>
-                    -->
                     <settings.forms>
                         <TCEforms>
                             <label>Standardaktion des Plugins</label> 

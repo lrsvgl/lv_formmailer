@@ -32,7 +32,6 @@ namespace TYPO3\LvFormmailer\Domain\Repository;
  *
  */
 class FormsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
-    
-    
+
 }
 ?>

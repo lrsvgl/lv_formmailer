@@ -8,7 +8,7 @@ if (!defined('TYPO3_MODE')) {
 	'Formmailer',
 	array(
 		'Forms' => 'show, list, create, edit, update, delete',
-		
+	
 	),
 	// non-cacheable actions
 	array(
