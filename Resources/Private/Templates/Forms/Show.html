@@ -4,18 +4,229 @@ This Template is responsible for displaying a single view for a domain object
 
 If you modify this template, do not forget to change the overwrite settings
 in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        Show.html: keep
+Resources:
+Private:
+Templates:
+Show.html: keep
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<h1>Single View for Forms</h1>
+    <h1>{forms.formname}</h1>
+    <f:flashMessages />
 
-<f:flashMessages />
-<f:render partial="Forms/Properties" arguments="{forms:forms}" />
-<f:link.action action="list">Back to list</f:link.action><br />
-<f:link.action action="new">New Forms</f:link.action>
+    
+   <f:if condition="{showform} > 0">
+
+        <f:form method="post" id="form_{uid}" enctype="multipart/form-data">
+            <fieldset>
+                <legend>{forms.formname}</legend>
+                <div class="data article clearfix">
+                    <table class="tab-order">
+                        <tbody>
+
+                            <tr>
+                                <td colspan="4"><h2><f:translate key="tx_lvformmailer_domain_model_forms.plakate" /></h2></td>
+                            </tr>
+                        <f:for each="{cat_1}" as="article" key="number" iteration="itemIteration">
+                            <tr>
+                            <td class="img">
+                            <f:if condition="{article.image}">
+                                <f:then>
+                                    <f:image src="uploads/tx_lvformmailer/{article.image}"  width="140"  alt="{article.title}" />
+                                </f:then>
+                            </f:if>
+
+                            </td>
+                            <td class="info">
+                                <h3>{article.title}</h3>
+                                <b>{article.subtitle}</b>
+                            <f:format.html>{article.description}</f:format.html>
+                            </td>
+                            <td class="price"><f:format.currency>{article.price}</f:format.currency> €</td>
+                            <td class="order">
+                            <f:form.hidden id="title_{article.uid}" value="{article.title}" name="article[0][{number}][title]" />
+                            <f:form.hidden id="title_{article.uid}" value="{article.subtitle}" name="article[0][{number}][subtitle]" />
+                            <f:form.hidden id="price_{article.uid}" class="price" value="{article.price}" name="article[0][{number}][price]" />
+                            <f:form.textfield id="art_{article.uid}" class="amount" value=""  name="article[0][{number}][amount]"></f:form.textfield>
+                            </td>
+                            </tr>
+                        </f:for>
+ 
+                        <tr>
+                            <td colspan="4"><h2><f:translate key="tx_lvformmailer_domain_model_forms.infoblaetter" /></h2></td>
+                        </tr>
+                        <f:for each="{cat_2}" as="article" key="number" iteration="itemIteration">
+                            <tr>
+                            <td class="img">
+                            <f:if condition="{article.image}">
+                                <f:then>
+                                    <f:image src="uploads/tx_lvformmailer/{article.image}"  width="140"  alt="{article.title}" />
+                                </f:then>
+                            </f:if>
+
+                            </td>
+                            <td class="info">
+                                <h3>{article.title}</h3>
+                                <b>{article.subtitle}</b>
+                            <f:format.html>{article.description}</f:format.html>
+                            </td>
+                            <td class="price"><f:format.currency>{article.price}</f:format.currency> €</td>
+                            <td class="order">
+                            <f:form.hidden id="title_{article.uid}" value="{article.title}" name="article[1][{number}][title]" />
+                            <f:form.hidden id="title_{article.uid}" value="{article.subtitle}" name="article[1][{number}][subtitle]" />
+                            <f:form.hidden id="price_{article.uid}" class="price" value="{article.price}" name="article[1][{number}][price]" />
+                            <f:form.textfield id="art_{article.uid}" class="amount" value=""  name="article[1][{number}][amount]"></f:form.textfield>
+                            </td>
+                            </tr>
+                        </f:for>     
+                        <tr>
+                            <td colspan="4"><h2><f:translate key="tx_lvformmailer_domain_model_forms.sonstiges" /></h2></td>
+                        </tr>
+                        <f:for each="{cat_3}" as="article" key="number" iteration="itemIteration">
+                            <tr>
+                            <td class="img">
+                            <f:if condition="{article.image}">
+                                <f:then>
+                                    <f:image src="uploads/tx_lvformmailer/{article.image}"  width="140"  alt="{article.title}" />
+                                </f:then>
+                            </f:if>
+
+                            </td>
+                            <td class="info">
+                                <h3>{article.title}</h3>
+                                <b>{article.subtitle}</b>
+                            <f:format.html>{article.description}</f:format.html>
+                            </td>
+                            <td class="price"><f:format.currency>{article.price}</f:format.currency> €</td>
+                            <td class="order">
+                            <f:form.hidden id="title_{article.uid}" value="{article.title}" name="article[2][{number}][title]" />
+                            <f:form.hidden id="title_{article.uid}" value="{article.subtitle}" name="article[2][{number}][subtitle]" />
+                            <f:form.hidden id="price_{article.uid}" class="price" value="{article.price}" name="article[2][{number}][price]" />
+                            <f:form.textfield id="art_{article.uid}" class="amount" value=""  name="article[2][{number}][amount]"></f:form.textfield>
+                            </td>
+                            </tr>
+                        </f:for>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="data sum clearfix">
+                    <h2><f:translate key="tx_lvformmailer_domain_model_forms.sum" /></h2>
+                    <label><f:translate key="tx_lvformmailer_domain_model_forms.netto" /></label>
+                    <f:form.textfield name="total[netto]" class="currency" id="netto" value="{netto}"></f:form.textfield>
+                    <label><f:translate key="tx_lvformmailer_domain_model_forms.shipping" /></label>
+                    <f:form.textfield name="total[shipping]" class="currency" id="shipping" value="{shipping}"></f:form.textfield>
+                    <label><f:translate key="tx_lvformmailer_domain_model_forms.vat" /></label>
+                    <f:form.textfield name="total[vat]" class="currency" id="vat" value="{vat}"></f:form.textfield>
+                    <label><f:translate key="tx_lvformmailer_domain_model_forms.brutto" /></label>
+                    <f:form.textfield name="total[brutto]" class="currency" id="brutto" value="{brutto}"></f:form.textfield>
+                </div>
+                <div class="data personal clearfix">
+                    <h2><f:translate key="tx_lvformmailer_domain_model_forms.data" /></h2>
+                    <label><f:translate key="tx_lvformmailer_domain_model_forms.company" /></label>
+                    <f:form.textfield name="form[firma]" value="{firma}"></f:form.textfield>
+                    <label><f:translate key="tx_lvformmailer_domain_model_forms.name" /> *</label>
+                    <f:form.textfield name="form[name]" value="{name}" required="1"></f:form.textfield>
+                    <label><f:translate key="tx_lvformmailer_domain_model_forms.street" /> *</label>
+                    <f:form.textfield name="form[strasse]" value="{strasse}" required="1"></f:form.textfield>
+                    <label><f:translate key="tx_lvformmailer_domain_model_forms.city" /> *</label>
+                    <f:form.textfield name="form[ort]" value="{ort}" required="1"></f:form.textfield>
+                    <label><f:translate key="tx_lvformmailer_domain_model_forms.country" /> *</label>
+                    <f:form.textfield name="form[land]" value="{land}" required="1" value="Deutschland"></f:form.textfield>
+                    <label><f:translate key="tx_lvformmailer_domain_model_forms.phone" /></label>
+                    <f:form.textfield name="form[telefon]" value="{telefon}"></f:form.textfield>
+                    <label><f:translate key="tx_lvformmailer_domain_model_forms.fax" /></label>
+                    <f:form.textfield name="form[fax]" value="{fax}"></f:form.textfield>
+                    <label><f:translate key="tx_lvformmailer_domain_model_forms.email" /> *</label>
+                    <f:form.textfield name="form[email]" value="{email}" required="1"></f:form.textfield>
+                </div>
+                <div class="data submit">
+                    <!--
+                    <label><f:translate key="tx_lvformmailer_domain_model_forms.captcha" /></label>
+                    <img id="captcha" src="typo3conf/ext/lv_formmailer/Resources/Public/securimage/securimage_show.php" alt="CAPTCHA Image" />
+                    <input type="text" name="captcha_code" size="10" maxlength="6" />
+                    <a href="#" onclick="document.getElementById('captcha').src = 'typo3conf/ext/lv_formmailer/Resources/Public/securimage/securimage_show.php?' + Math.random(); return false">[ Different Image ]</a>
+                    -->
+                    <f:form.submit value="Bestellung abschicken" />
+                </div>
+            </fieldset>
+
+        </f:form>
+
+        <script type="text/javascript">
+
+            var validator = jQuery("#form_{uid}").validate();
+    //        validator.showErrors({
+    //            "required": "Bitte Feld ausfüllen."
+    //        });
+        /* Bestellformular Zwischensumme  */
+        if (jQuery('.tx-lv-formmailer').length > 0) {
+
+            jQuery('.data.submit').css('display', 'none');
+
+            function calc() {
+                var mwst = 0.19;
+                var inland = 6.90;
+
+                //console.log(jQuery('.data.order input.price').val());
+                //console.log(jQuery('.data.order input.amount').val());
+
+                var obj = jQuery('.data.article .order');
+                var total = new Array();
+                obj.each(function(index) {
+                    //console.log(index);
+                    //console.log("amount: "+ jQuery(this).find('input.amount').val());
+                    var amount = jQuery(this).find('input.amount').val();
+                    var price = jQuery(this).find('input.price').val()
+                    if (amount) {
+                        total[index] = amount * price;
+                        //console.log("total: " + index + " - " + total[index]);
+                    } else {
+                        total[index] = 0;
+                    }
+
+                });
+
+                //console.log(total);
+                // Berechnung
+                //var pNetto = p1 * m1;
+                var pNetto = 0;
+                for (var i = 0, n = total.length; i < n; ++i){
+                    pNetto += total[i];
+                }
+                var ust = pNetto * mwst;
+                var pBrutto = pNetto + ust + inland;
+
+                // Versand
+                jQuery('#shipping').val(inland.toFixed(2) + " €")
+
+                if (pNetto > 0) {
+                    jQuery('#netto').fadeIn();
+                    jQuery('#netto').val(pNetto.toFixed(2) + " €");
+                    jQuery('#vat').fadeIn();
+                    jQuery('#vat').val(ust.toFixed(2) + " €");
+                    jQuery('#brutto').fadeIn();
+                    jQuery('#brutto').val(pBrutto.toFixed(2) + " €");
+                    jQuery('.tx-lv-formmailer .data.submit').fadeIn();
+                } else {
+                    jQuery('#netto').css('display', 'none');
+                    jQuery('#netto').css('display', 'none');
+                    jQuery('#brutto').css('display', 'none');
+                    jQuery('.tx-lv-formmailer .data.submit').css('display', 'none');
+                }
+
+            }
+
+            calc();
+
+            $('input').on('keyup', function() {
+                calc();
+            });
+
+        }
+        </script>
+
+    
+    </f:if> 
 </f:section>
