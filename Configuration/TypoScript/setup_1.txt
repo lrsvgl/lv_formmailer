@@ -11,10 +11,11 @@ plugin.tx_lvformmailer {
 		# uncomment the following line to enable the new Property Mapper.
 		# rewrittenPropertyMapper = 1
 	}
-        mvc {
-                callDefaultActionIfActionCantBeResolved = 1
-        }
 }
+
+page.includeJS.tx_lvformmailer = EXT:lv_formmailer/Resources/Public/js/jquery.validate.js
+#page.includeJS.tx_lvformmailer = EXT:lv_formmailer/Resources/Public/js/jquery.form.js
+#page.includeJS.tx_lvformmailer = EXT:lv_formmailer/Resources/Public/js/jquery.mockjax.js
 
 plugin.tx_lvformmailer._CSS_DEFAULT_STYLE (
 	textarea.f3-form-error {

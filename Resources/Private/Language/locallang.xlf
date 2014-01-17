@@ -49,6 +49,9 @@
                         <trans-unit id="tx_lvformmailer_domain_model_forms.street">
 				<source>Straße / Nr.</source>
 			</trans-unit>
+                        <trans-unit id="tx_lvformmailer_domain_model_forms.city">
+				<source>Ort.</source>
+			</trans-unit>
                          <trans-unit id="tx_lvformmailer_domain_model_forms.country">
 				<source>Land</source>
 			</trans-unit>
@@ -81,6 +84,9 @@
 			</trans-unit>
                         <trans-unit id="tx_lvformmailer_domain_model_forms.error">
 				<source>Es ist ein Fehler aufgetreten und Ihre Bestellung wurde nicht gesendet.</source>
+			</trans-unit>
+                        <trans-unit id="tx_lvformmailer_domain_model_forms.captcha">
+				<source>Sicherheitsabfrag (Bitte Code aus dem Bild unten eintragen):</source>
 			</trans-unit>
 			
 			<trans-unit id="tx_lvformmailer_domain_model_mails">

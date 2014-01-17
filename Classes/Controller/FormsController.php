@@ -65,10 +65,16 @@ class FormsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      * @return void
      */
     public function showAction() {
-
+        // Requests
+        $arg = $this->request->getArguments('form');
+        $form = $arg['form'];
+        $article = $arg['article'];
+        $total = $arg['total'];
+        $submit = $REQUEST['submit'];
+        //var_dump($total);
+        // Vars
         $form_id = $this->settings['forms'];
         $forms = $this->formsRepository->findOneByUid($form_id);
-        $submit = $_REQUEST['submit'];
         $showform  = 1;
 
         // Article
@@ -81,18 +87,13 @@ class FormsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $mail['sendername'] = $forms->getSendername();
         $mail['receiveremail'] = $forms->getReceiveremail();
         $mail['receivername'] = $forms->getReceivername();
+        $mail['customeremail'] = $form['email'];
+        $mail['customername'] = $form['name'];
         $mail['subject'] = $forms->getSubject();
         $mail['body'] = "";
+        
 
-        //var_dump($mail);
-        $arg = $this->request->getArguments('form');
-        $form = $arg['form'];
-        $article = $arg['article'];
-        $total = $arg['total'];
-
-        //var_dump($arg);
-
-        if ($submit) {
+        if ($form['email'] &&  $article) {
 
             $session = array();
             $session['form'] = $form;
@@ -125,12 +126,14 @@ class FormsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
             for ($i = 0; $i < count($article); $i++) {
                 for ($j = 0; $j < count($article[$i]); $j++) {
-                    $mail['body'] .= '<tr>';
-                    $mail['body'] .= '<td class="col-1" style="width:300px;"><b>' . $article[$i][$j]['title'] . '</b><br>' . $article[$i][$j]['subtitle'] . '</td>';
-                    $mail['body'] .= '<td class="col-2" style="text-align:right; width:80px;">' . $article[$i][$j]['amount'] . '</td>';
-                    $mail['body'] .= '<td class="col-3" style="text-align:right; width:80px;">' . $this->makeCurrency($article[$i][$j]['price']) . ' €</td>';
-                    $mail['body'] .= '<td class="col-4" style="text-align:right; width:80px;">' . $this->makeCurrency($article[$i][$j]['price']*$article[$i][$j]['amount']) . ' €</td>';
-                    $mail['body'] .= '</tr>';
+                    if ($article[$i][$j]['amount']>0)  {
+                        $mail['body'] .= '<tr>';
+                        $mail['body'] .= '<td class="col-1" style="width:310px;"><b>' . $article[$i][$j]['title'] . '</b><br>' . $article[$i][$j]['subtitle'] . '</td>';
+                        $mail['body'] .= '<td class="col-2" style="text-align:right; width:80px;">' . $article[$i][$j]['amount'] . '</td>';
+                        $mail['body'] .= '<td class="col-3" style="text-align:right; width:80px;">' . $this->makeCurrency($article[$i][$j]['price']) . ' €</td>';
+                        $mail['body'] .= '<td class="col-4" style="text-align:right; width:110px;">' . $this->makeCurrency($article[$i][$j]['price']*$article[$i][$j]['amount']) . ' €</td>';
+                        $mail['body'] .= '</tr>';           
+                    }
                 }
             }
             $mail['body'] .= '<tr><td class="sep"><br></td></tr>';
@@ -175,14 +178,18 @@ class FormsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             $message = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Mail\\MailMessage');
             $message->setFrom(array($mail['senderemail'] => $mail['sendername']))
                     ->setTo(array($mail['receiveremail'] => $mail['receivername']))
+                    ->setBcc(array($mail['customeremail'] => $mail['customername']))
                     ->setSubject($mail['subject'])
                     ->setBody($mail['body'], 'text/html');
             $message->send();
             if ($message->isSent()) {
                 $this->flashMessageContainer->add(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_lvformmailer_domain_model_forms.success', 'lv_formmailer'));
+                //$this->flashMessageContainer->add("Erfolg");
                 $showform = 0;
+                $this->sessionHandler->cleanUpSession();
             } else {
                 $this->flashMessageContainer->add(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_lvformmailer_domain_model_forms.error', 'lv_formmailer'));
+                //$this->flashMessageContainer->add("Fehler");
                 $showform = 1;
             }
         }
