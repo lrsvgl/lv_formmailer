@@ -13,31 +13,248 @@ plugin.tx_lvformmailer {
 	}
 }
 
-page.includeJS.tx_lvformmailer = EXT:lv_formmailer/Resources/Public/js/jquery.validate.js
-#page.includeJS.tx_lvformmailer = EXT:lv_formmailer/Resources/Public/js/jquery.form.js
-#page.includeJS.tx_lvformmailer = EXT:lv_formmailer/Resources/Public/js/jquery.mockjax.js
+page.includeJS.tx_lvformmailer90 = EXT:lv_formmailer/Resources/Public/js/jquery.validationEngine.js
+page.includeJS.tx_lvformmailer91 = EXT:lv_formmailer/Resources/Public/js/languages/jquery.validationEngine-de.js
 
 plugin.tx_lvformmailer._CSS_DEFAULT_STYLE (
-	textarea.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
-	}
+/* formmailer */
+.tx-lv-formmailer {
+    
+}
+.tx-lv-formmailer h2 {
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0;
+    margin: 30px 0 10px 0;
+}
+.tx-lv-formmailer div.data {
+    margin: 0px 0 10px 0;
+}
+.tx-lv-formmailer label {
+   display: block;
+   float: left;
+   width: 160px;
+   height: 30px;
+   line-height: 30px;
+   clear: both; 
+}
+.tx-lv-formmailer input[type=text] {
+   display: block; 
+    float: left;
+}
+.tx-lv-formmailer textarea {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+.tx-lv-formmailer input[type=submit] {
+display: block;
+   clear: both; 
+   margin-top: 20px;
+}
+.tx-lv-formmailer label.error {
+    display: block;
+    color: red;
+    font-style: italic;
+    font-size: 10px;
+    margin-left: 160px;
+}
+.tx-lv-formmailer div.error { 
+        display: none; 
+}
+.tx-lv-formmailer input.error { border: 1px dotted red; }
 
-	input.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
-	}
 
-	.tx-lv-formmailer table {
-		border-collapse:separate;
-		border-spacing:10px;
-	}
+.tx-lv-formmailer table {
+    border-collapse: collapse;
+    border: 0;
+}
+.tx-lv-formmailer table tr {
+    border-bottom: 1px dotted #f8bbe2;
+}
+.tx-lv-formmailer table td {
+    margin: 0;
+    padding: 4px 4px 4px 0;
+    font-size: 13px;
+}
+.tx-lv-formmailer table td h3 {
+    font-size: 13px;
+    margin-bottom: 3px;
+}
+.tx-lv-formmailer table .img {
+    width: 140px;
+}
+.tx-lv-formmailer table .info {
+    width: 460px;
+    padding-left: 20px;
+}
+.tx-lv-formmailer table .price {
+    width: 60px;
+    text-align: right;
+    vertical-align: middle;
+}
+.tx-lv-formmailer table .order {
+    width: 70px;
+    vertical-align: middle;
+}
+.tx-lv-formmailer table .order input {
+    display: block;
+    float: right;
+}
+.tx-lv-formmailer .amount {
+    width: 40px;
+}
+.tx-lv-formmailer .data.sum input[type=text] {
+    text-align: right;
+    padding-right: 10px;
+    padding-left: 0;
+}
+.tx-lv-formmailer  input.currency {
+    background-color: #fbe5ef;
+    border: 1px solid #fbe5ef;
+}
+.tx-lv-formmailer .data.personal label, 
+.tx-lv-formmailer .data.sum label{
+    margin-right: 10px;
+}
+.tx-lv-formmailer .data.submit {
+    margin: 10px 0 30px;
+    padding-left: 170px;
+}
+.tx-lv-formmailer .data.submit label,
+.tx-lv-formmailer .data.submit input, 
+.tx-lv-formmailer .data.submit img{
+    float: none;
+    margin-bottom: 5px;
+}
+.tx-lv-formmailer .data.submit label {
+    width: auto;
+}
+/* Anpassungen */
+.tx-lv-formmailer #row_16 .order input {
+    display: none;
+}
 
-	.tx-lv-formmailer table th {
-		font-weight:bold;
-	}
+/* form validation */
+/* Z-INDEX */
+.formError { z-index: 990; }
+.formError .formErrorContent { z-index: 991; }
+.formError .formErrorArrow { z-index: 996; }
+.formErrorInsideDialog.formError { z-index: 5000; }
+.formErrorInsideDialog.formError .formErrorContent { z-index: 5001; }
+.formErrorInsideDialog.formError .formErrorArrow { z-index: 5006; }
+.inputContainer {
+    position: relative;
+    float: left;
+}
+.formError {
+    position: absolute;
+    top: 300px;
+    left: 300px;
+    display: block;
+    cursor: pointer;
+}
+.ajaxSubmit {
+    padding: 20px;
+    background: rgb(228,0,123);
+    border: 1px solid #000;
+    display: none
+}
+.formError .formErrorContent {
+    width: 100%;
+    position:relative;
+    color: #fff;
+    width: 150px;
+    font-size: 11px;
+    padding: 4px 10px 4px 10px;
+    background: rgb(228,0,123);
+    border: 1px solid #000;
+}
+.greenPopup .formErrorContent {
+    background: rgb(228,0,123);
+}
+.blackPopup .formErrorContent {
+    background: #393939;
+    color: #FFF;
+}
+.formError .formErrorArrow {
+    width: 15px;
+    margin: -2px 0 0 13px;
+    position: relative;
+}
+body[dir='rtl'] .formError .formErrorArrow,
+body.rtl .formError .formErrorArrow {
+    margin: -2px 13px 0 0;
+}
+.formError .formErrorArrowBottom {
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    margin: 0px 0 0 12px;
+    top:2px;
+}
+.formError .formErrorArrow div {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    font-size: 0px;
+    height: 1px;
+    margin: 0 auto;
+    line-height: 0;
+    font-size: 0;
+    display: block;
+    background: rgb(228,0,123);
+}
+.formError .formErrorArrowBottom div {
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.greenPopup .formErrorArrow div {
+    background: #33be40;
+}
+.blackPopup .formErrorArrow div {
+    background: #393939;
+    color: #FFF;
+}
+.formError .formErrorArrow .line10 {
+    width: 15px;
+    border: none;
+}
+.formError .formErrorArrow .line9 {
+    width: 13px;
+    border: none;
+}
+.formError .formErrorArrow .line8 {
+    width: 11px;
+}
+.formError .formErrorArrow .line7 {
+    width: 9px;
+}
+.formError .formErrorArrow .line6 {
+    width: 7px;
+}
+.formError .formErrorArrow .line5 {
+    width: 5px;
+}
+.formError .formErrorArrow .line4 {
+    width: 3px;
+}
+.formError .formErrorArrow .line3 {
+    width: 1px;
+    border-left: 2px solid #ddd;
+    border-right: 2px solid #ddd;
+    border-bottom: 0 solid #ddd;
+}
+.formError .formErrorArrow .line2 {
+    width: 3px;
+    border: none;
+    background: #ddd;
+}
+.formError .formErrorArrow .line1 {
+    width: 1px;
+    border: none;
+    background: #ddd;
+}
 
-	.tx-lv-formmailer table td {
-		vertical-align:top;
-	}
 )

@@ -128,7 +128,7 @@ class FormsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                 for ($j = 0; $j < count($article[$i]); $j++) {
                     if ($article[$i][$j]['amount']>0)  {
                         $mail['body'] .= '<tr>';
-                        $mail['body'] .= '<td class="col-1" style="width:310px;"><b>' . $article[$i][$j]['title'] . '</b><br>' . $article[$i][$j]['subtitle'] . '</td>';
+                        $mail['body'] .= '<td class="col-1"><b>' . $article[$i][$j]['title'] . '</b><br>' . $article[$i][$j]['subtitle'] . '</td>';
                         $mail['body'] .= '<td class="col-2" style="text-align:right; width:80px;">' . $article[$i][$j]['amount'] . '</td>';
                         $mail['body'] .= '<td class="col-3" style="text-align:right; width:80px;">' . $this->makeCurrency($article[$i][$j]['price']) . ' €</td>';
                         $mail['body'] .= '<td class="col-4" style="text-align:right; width:110px;">' . $this->makeCurrency($article[$i][$j]['price']*$article[$i][$j]['amount']) . ' €</td>';
@@ -185,6 +185,8 @@ class FormsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             if ($message->isSent()) {
                 $this->flashMessageContainer->add(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_lvformmailer_domain_model_forms.success', 'lv_formmailer'));
                 //$this->flashMessageContainer->add("Erfolg");
+                /* mail speichern */
+                $this->formsRepository->createMail($mail, $settings);
                 $showform = 0;
                 $this->sessionHandler->cleanUpSession();
             } else {
@@ -300,7 +302,7 @@ class FormsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		            }
 		            table {
 		                border: 0;
-		                width: 300px;
+		                width: 500px;
 		            }
 		            table th {
 		                font-weight: bold;

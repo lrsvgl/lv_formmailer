@@ -32,6 +32,37 @@ namespace TYPO3\LvFormmailer\Domain\Repository;
  *
  */
 class FormsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+    /**
+     * createMails
+     *
+     * @array  $data
+     * @array  $settings
+     * 
+     */
+    public function createMail($mail, $settings) {
 
+        $table = 'tx_lvformmailer_domain_model_mails';
+        $pid = 64;
+
+        $pid = $settings['defaultPid'];
+        $table = $settings['tableMail'];
+        $date = time();
+        
+        //var_dump($mail);
+        //die("repo");
+        
+        // Daten einlesen
+        $GLOBALS['TYPO3_DB']->exec_INSERTquery(
+                $table, array(
+                    'pid' => $pid,
+                    'sendername' => $mail['sendername'],
+                    'senderemail' => $mail['senderemail'],
+                    'subject' => $mail['subject'],
+                    'body' => $mail['body'],
+                    'crdate' =>  $date,
+                    'tstamp' =>  $date,
+                )
+        );
+    }
 }
 ?>

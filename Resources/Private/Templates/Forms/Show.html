@@ -12,7 +12,7 @@ Show.html: keep
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-    <h1>{forms.formname}</h1>
+    <h1><f:format.htmlentitiesDecode>{forms.formname}</f:format.htmlentitiesDecode></h1>
     <f:flashMessages />
 
     
@@ -29,17 +29,17 @@ Otherwise your changes will be overwritten the next time you save the extension 
                                 <td colspan="4"><h2><f:translate key="tx_lvformmailer_domain_model_forms.plakate" /></h2></td>
                             </tr>
                         <f:for each="{cat_1}" as="article" key="number" iteration="itemIteration">
-                            <tr>
+                            <tr id="row_{article.uid}">
                             <td class="img">
                             <f:if condition="{article.image}">
                                 <f:then>
-                                    <f:image src="uploads/tx_lvformmailer/{article.image}"  width="140"  alt="{article.title}" />
+                                    <a href="uploads/tx_lvformmailer/{article.image}" class="fancybox"><f:image src="uploads/tx_lvformmailer/{article.image}"  width="140"  alt="{article.title}" /></>
                                 </f:then>
                             </f:if>
 
                             </td>
                             <td class="info">
-                                <h3>{article.title}</h3>
+                                <h3><f:format.htmlentitiesDecode>{article.title}</f:format.htmlentitiesDecode></h3>
                                 <b>{article.subtitle}</b>
                             <f:format.html>{article.description}</f:format.html>
                             </td>
@@ -57,11 +57,11 @@ Otherwise your changes will be overwritten the next time you save the extension 
                             <td colspan="4"><h2><f:translate key="tx_lvformmailer_domain_model_forms.infoblaetter" /></h2></td>
                         </tr>
                         <f:for each="{cat_2}" as="article" key="number" iteration="itemIteration">
-                            <tr>
+                            <tr id="row_{article.uid}">
                             <td class="img">
                             <f:if condition="{article.image}">
                                 <f:then>
-                                    <f:image src="uploads/tx_lvformmailer/{article.image}"  width="140"  alt="{article.title}" />
+                                    <a href="uploads/tx_lvformmailer/{article.image}" class="fancybox"><f:image src="uploads/tx_lvformmailer/{article.image}"  width="140"  alt="{article.title}" /></>
                                 </f:then>
                             </f:if>
 
@@ -84,11 +84,11 @@ Otherwise your changes will be overwritten the next time you save the extension 
                             <td colspan="4"><h2><f:translate key="tx_lvformmailer_domain_model_forms.sonstiges" /></h2></td>
                         </tr>
                         <f:for each="{cat_3}" as="article" key="number" iteration="itemIteration">
-                            <tr>
+                            <tr id="row_{article.uid}">
                             <td class="img">
                             <f:if condition="{article.image}">
                                 <f:then>
-                                    <f:image src="uploads/tx_lvformmailer/{article.image}"  width="140"  alt="{article.title}" />
+                                    <a href="uploads/tx_lvformmailer/{article.image}" class="fancybox"><f:image src="uploads/tx_lvformmailer/{article.image}"  width="140"  alt="{article.title}" /></>
                                 </f:then>
                             </f:if>
 
@@ -125,21 +125,23 @@ Otherwise your changes will be overwritten the next time you save the extension 
                 <div class="data personal clearfix">
                     <h2><f:translate key="tx_lvformmailer_domain_model_forms.data" /></h2>
                     <label><f:translate key="tx_lvformmailer_domain_model_forms.company" /></label>
-                    <f:form.textfield name="form[firma]" value="{firma}"></f:form.textfield>
+                    <f:form.textfield name="form[firma]" value="{firma}" />
                     <label><f:translate key="tx_lvformmailer_domain_model_forms.name" /> *</label>
-                    <f:form.textfield name="form[name]" value="{name}" required="1"></f:form.textfield>
+                    <f:form.textfield name="form[name]" value="{name}" class="validate[required]" />
                     <label><f:translate key="tx_lvformmailer_domain_model_forms.street" /> *</label>
-                    <f:form.textfield name="form[strasse]" value="{strasse}" required="1"></f:form.textfield>
+                    <f:form.textfield name="form[strasse]" value="{strasse}" class="validate[required]" />
                     <label><f:translate key="tx_lvformmailer_domain_model_forms.city" /> *</label>
-                    <f:form.textfield name="form[ort]" value="{ort}" required="1"></f:form.textfield>
+                    <f:form.textfield name="form[ort]" value="{ort}" class="validate[required]" />
                     <label><f:translate key="tx_lvformmailer_domain_model_forms.country" /> *</label>
-                    <f:form.textfield name="form[land]" value="{land}" required="1" value="Deutschland"></f:form.textfield>
+                    <f:form.textfield name="form[land]" value="{land}" class="validate[required]" value="Deutschland" />
                     <label><f:translate key="tx_lvformmailer_domain_model_forms.phone" /></label>
-                    <f:form.textfield name="form[telefon]" value="{telefon}"></f:form.textfield>
+                    <f:form.textfield name="form[telefon]" value="{telefon}" />
                     <label><f:translate key="tx_lvformmailer_domain_model_forms.fax" /></label>
-                    <f:form.textfield name="form[fax]" value="{fax}"></f:form.textfield>
+                    <f:form.textfield name="form[fax]" value="{fax}" />
                     <label><f:translate key="tx_lvformmailer_domain_model_forms.email" /> *</label>
-                    <f:form.textfield name="form[email]" value="{email}" required="1"></f:form.textfield>
+                    <f:form.textfield name="form[email]" class="validate[required,custom[email]]" value="{email}" />
+                    <label><f:translate key="tx_lvformmailer_domain_model_forms.message" /></label>
+                    <f:form.textarea name="form[nachricht]" value="{nachricht}" />
                 </div>
                 <div class="data submit">
                     <!--
@@ -156,10 +158,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
         <script type="text/javascript">
 
-            var validator = jQuery("#form_{uid}").validate();
-    //        validator.showErrors({
-    //            "required": "Bitte Feld ausfüllen."
-    //        });
+            //jQuery("#form_{uid}").validate();
+            jQuery("#form_{uid}").validationEngine();
+
         /* Bestellformular Zwischensumme  */
         if (jQuery('.tx-lv-formmailer').length > 0) {
 
@@ -168,9 +169,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
             function calc() {
                 var mwst = 0.19;
                 var inland = 6.90;
-
-                //console.log(jQuery('.data.order input.price').val());
-                //console.log(jQuery('.data.order input.amount').val());
 
                 var obj = jQuery('.data.article .order');
                 var total = new Array();
@@ -188,7 +186,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
                 });
 
-                //console.log(total);
                 // Berechnung
                 //var pNetto = p1 * m1;
                 var pNetto = 0;
@@ -201,7 +198,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
                 // Versand
                 jQuery('#shipping').val(inland.toFixed(2) + " €")
 
-                if (pNetto > 0) {
+//               if (amount > 0) {
                     jQuery('#netto').fadeIn();
                     jQuery('#netto').val(pNetto.toFixed(2) + " €");
                     jQuery('#vat').fadeIn();
@@ -209,18 +206,18 @@ Otherwise your changes will be overwritten the next time you save the extension 
                     jQuery('#brutto').fadeIn();
                     jQuery('#brutto').val(pBrutto.toFixed(2) + " €");
                     jQuery('.tx-lv-formmailer .data.submit').fadeIn();
-                } else {
-                    jQuery('#netto').css('display', 'none');
-                    jQuery('#netto').css('display', 'none');
-                    jQuery('#brutto').css('display', 'none');
-                    jQuery('.tx-lv-formmailer .data.submit').css('display', 'none');
-                }
+//                } else {
+//                    jQuery('#netto').css('display', 'none');
+//                    jQuery('#netto').css('display', 'none');
+//                    jQuery('#brutto').css('display', 'none');
+//                    jQuery('.tx-lv-formmailer .data.submit').css('display', 'none');
+//                }
 
             }
 
             calc();
 
-            $('input').on('keyup', function() {
+            jQuery('input').on('keyup', function() {
                 calc();
             });
 
