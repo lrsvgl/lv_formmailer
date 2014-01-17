@@ -23,3 +23,8 @@ Todo
 * localisation
 * store mails in DB
 
+Target
+
+* provide a basic extension for implementing forms
+* without configuring fields in IRRE
+* only in the fluid template
