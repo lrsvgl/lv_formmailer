@@ -20,6 +20,8 @@ lv_formmailer
 =================
 
 What does it do?
+
+* generate the documentation using on-line services (@todo to write) 
 * provides an basic order form with
 * 3 categories for articles
 * from database (title, subtitle, richtext, price, image)
