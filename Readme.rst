@@ -19,8 +19,8 @@ Install
 
 Configuration
 
-1 set up your fields in the Fluid template /Resources/Forms/Show.html
-2 you give 3 arrays to the controller: 
+* set up your fields in the Fluid template /Resources/Forms/Show.html
+* you give 3 arrays to the controller: 
 * $form (the basic form), use keynames as you like (this may change in the future)
 * $articles (for some order stuff, this is not necessary - used for inqueries), don´t change key names
 * $total (if articles have prices, this is not necessary - used for inqueries), don´t change key names
