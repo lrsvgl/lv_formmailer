@@ -16,6 +16,11 @@ Install
 * install in Extension manager
 * include static template
 * set storage pid in constants
+* go the the storage folder and create a record "Formmailer/Form"
+* go some page and insert a frontend plugin "formmailer" and
+* chose the form record of your choice
+* for using mulitple form records work width conditions in the fluid template, 
+* by requesting the form uid (this not tested yet)
 
 Configuration
 
@@ -28,6 +33,7 @@ Configuration
 Todo
 
 * implement captcha service
+* test multiple forms
 * localisation
 * BE-Module for - i don´t know what
 
