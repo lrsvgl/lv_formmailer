@@ -13,7 +13,7 @@ plugin.tx_lvformmailer {
 	}
         settings {
             defaultPid = 64
-            mailTable = tx_lvformmailer_domain_model_mails
+            tableMail = tx_lvformmailer_domain_model_mails
         }
 }
 

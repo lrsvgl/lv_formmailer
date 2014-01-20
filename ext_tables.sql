@@ -55,7 +55,7 @@ CREATE TABLE tx_lvformmailer_domain_model_mails (
 	sendername varchar(255) DEFAULT '' NOT NULL,
 	senderemail varchar(255) DEFAULT '' NOT NULL,
 	subject varchar(255) DEFAULT '' NOT NULL,
-	body varchar(255) DEFAULT '' NOT NULL,
+	body text NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

@@ -48,14 +48,14 @@ class Mails extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $senderemail;
 
 	/**
-	 * subject
+	 * Subject
 	 *
 	 * @var \string
 	 */
 	protected $subject;
 
 	/**
-	 * body
+	 * Nachricht
 	 *
 	 * @var \string
 	 */

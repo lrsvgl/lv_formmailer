@@ -11,6 +11,10 @@ plugin.tx_lvformmailer {
 		# uncomment the following line to enable the new Property Mapper.
 		# rewrittenPropertyMapper = 1
 	}
+        settings {
+            defaultPid = 64
+            tableMail = tx_lvformmailer_domain_model_mails
+        }
 }
 
 page.includeJS.tx_lvformmailer90 = EXT:lv_formmailer/Resources/Public/js/jquery.validationEngine.js

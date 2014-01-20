@@ -17,8 +17,8 @@ Extension Name
 :Description: manuals covering TYPO3 extension "Formmailer"
 :Language: en
 :Author: 
-:Creation: 2014-01-16
-:Generation: 12:43
+:Creation: 2014-01-20
+:Generation: 08:47
 :Licence: Open Content License available from `www.opencontent.org/opl.shtml <http://www.opencontent.org/opl.shtml>`_
 
 The content of this document is related to TYPO3, a GNU/GPL CMS/Framework available from `www.typo3.org
