@@ -26,7 +26,10 @@
 				<source>subject</source>
 			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_forms.article">
-				<source>Artikel</source>
+				<source>Ihre heute bei Heidezüchtung Kramer bestellten Gardengirls-Werbemittel:</source>
+			</trans-unit>
+                        <trans-unit id="tx_lvformmailer_domain_model_forms.article_2">
+				<source>Diese werden Ihnen in den nächsten Tagen zugestellt.</source>
 			</trans-unit>
                         <trans-unit id="tx_lvformmailer_domain_model_forms.plakate">
 				<source>Plakate</source>
@@ -40,11 +43,14 @@
                         <trans-unit id="tx_lvformmailer_domain_model_forms.data">
 				<source>Ihre Daten</source>
 			</trans-unit>
-                        <trans-unit id="tx_lvformmailer_domain_model_forms.company">
+             <trans-unit id="tx_lvformmailer_domain_model_forms.company">
 				<source>Firma</source>
 			</trans-unit>
-                        <trans-unit id="tx_lvformmailer_domain_model_forms.name">
-				<source>Name</source>
+			 <trans-unit id="tx_lvformmailer_domain_model_forms.ust">
+            <source>Ust. ID</source>
+            </trans-unit>
+               <trans-unit id="tx_lvformmailer_domain_model_forms.name">
+			<source>Name</source>
 			</trans-unit>
                         <trans-unit id="tx_lvformmailer_domain_model_forms.street">
 				<source>Straße / Nr.</source>
@@ -74,7 +80,7 @@
 				<source>gesamt netto</source>
 			</trans-unit>
                         <trans-unit id="tx_lvformmailer_domain_model_forms.shipping">
-				<source>Versandkosten Inland</source>
+				<source>Versandkosten</source>
 			</trans-unit>
                         <trans-unit id="tx_lvformmailer_domain_model_forms.vat">
 				<source>zzgl. 19% MwSt.</source>
@@ -91,7 +97,9 @@
                         <trans-unit id="tx_lvformmailer_domain_model_forms.captcha">
 				<source>Sicherheitsabfrag (Bitte Code aus dem Bild unten eintragen):</source>
 			</trans-unit>
-			
+			<trans-unit id="tx_lvformmailer_domain_model_forms.amount">
+				<source>gewünschte Stückzahl</source>
+			</trans-unit>
 			<trans-unit id="tx_lvformmailer_domain_model_mails">
 				<source>Mails</source>
 			</trans-unit>
@@ -129,6 +137,7 @@
 			<trans-unit id="tx_lvformmailer_domain_model_articles.cat">
 				<source>Kategorie</source>
 			</trans-unit>
+                        
                         
                         
 			

@@ -1,175 +1,175 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff version="1.0">
-    <file source-language="en" datatype="plaintext" original="messages" date="2014-01-16T12:43:05Z" product-name="lv_formmailer">
+    <file target-language="en" datatype="plaintext" original="messages" date="2014-01-16T12:43:05Z" product-name="lv_formmailer">
         <header></header>
         <body>
             <trans-unit id="tx_lvformmailer_domain_model_forms">
-                <source>Formular</source>
+                <target>Formular</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.formname">
-                <source>formular name</source>
+                <target>formular name</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.senderemail">
-                <source>sender name</source>
+                <target>sender name</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.sendername">
-                <source>sender name</source>
+                <target>sender name</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.receiveremail">
-                <source>receiver email</source>
+                <target>receiver email</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.receivername">
-                <source>receiver name</source>
+                <target>receiver name</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.subject">
-                <source>subject</source>
+                <target>subject</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.article">
-                <source>Ihre heute bei Heidezüchtung Kramer bestellten Gardengirls-Werbemittel:</source>
+                <target>Your ordered the following promotional supplies at Heidezüchtung Kramer:</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.article_2">
-                <source>Diese werden Ihnen in den nächsten Tagen zugestellt.</source>
+                <target>Your will be delievered within the next few days.</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.plakate">
-                <source>Plakate</source>
+                <target>Poster</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.infoblaetter">
-                <source>Infoblätter</source>
+                <target>Flyer</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.sonstiges">
-                <source>Sonstiges</source>
+                <target>Other</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.data">
-                <source>Ihre Daten</source>
+                <target>Your contact data</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.company">
-                <source>Firma</source>
+                <target>Company</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.ust">
-                <source>UST-Id Nummer</source>
+                <target>VAT-ID</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.name">
-                <source>Name</source>
+                <target>Name</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.street">
-                <source>Straße / Nr.</source>
+                <target>Street / no.</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.city">
-                <source>Ort.</source>
+                <target>City</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.country">
-                <source>Land</source>
+                <target>Country</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.phone">
-                <source>Telefon</source>
+                <target>Telephone</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.fax">
-                <source>Fax</source>
+                <target>Fax</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.email">
-                <source>E-Mail</source>
+                <target>E-Mail</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.message">
-                <source>Ihre Nachricht</source>
+                <target>Your message</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.sum">
-                <source>Zwischensumme</source>
+                <target>Subtotal</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.netto">
-                <source>gesamt netto</source>
+                <target>net </target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.shipping">
-                <source>Versandkosten</source>
+                <target>shipping costs</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.vat">
-                <source>zzgl. 19% MwSt.</source>
+                <target>plus 19% VAT</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.brutto">
-                <source>gesamt</source>
-            </trans-unit>
-            <trans-unit id="tx_lvformmailer_domain_model_forms.senden">
-                <source>Bestellung abschicken</source>
+                <target>total</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.success">
-                <source>Vielen Dank! Wir haben Ihre Bestellung erhalten.</source>
+                <target>Thank You for your order. We recieved your order successfully.</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.error">
-                <source>Es ist ein Fehler aufgetreten und Ihre Bestellung wurde nicht gesendet.</source>
+                <target>Sorry, an errror accured and your order could not be sent.</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.captcha">
-                <source>Sicherheitsabfrag (Bitte Code aus dem Bild unten eintragen):</source>
+                <target>Sicherheitsabfrag (Bitte Code aus dem Bild unten eintragen):</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.amount">
-                <source>gewünschte Stückzahl</source>
+                <target>quantity</target>
             </trans-unit>
+             <trans-unit id="tx_lvformmailer_domain_model_forms.senden">
+                 <target>send</target>
+             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_mails">
-                <source>Mails</source>
+                <target>Mails</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_mails.sendername">
-                <source>sender name</source>
+                <target>sender name</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_mails.senderemail">
-                <source>sender email</source>
+                <target>sender email</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_mails.subject">
-                <source>subject</source>
+                <target>subject</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_mails.body">
-                <source>body</source>
+                <target>body</target>
             </trans-unit>
              <trans-unit id="tx_lvformmailer_domain_model_mails.artikel">
-                 <source>Artikel</source>
+                 <target>article</target>
              </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_mails.menge">
-                <source>Menge</source>
+                <target>amount</target>
             </trans-unit>
              <trans-unit id="tx_lvformmailer_domain_model_mails.preis">
-                 <source>Preis</source>
+                 <target>price</target>
              </trans-unit>
              <trans-unit id="tx_lvformmailer_domain_model_mails.kosten">
-                 <source>Kosten</source>
+                 <target>costs</target>
              </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_articles">
-                <source>Articles</source>
+                <target>Articles</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_articles.title">
-                <source>Name</source>
+                <target>Name</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_articles.subtitle">
-                <source>Untertitel</source>
+                <target>Subtitle</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_articles.description">
-                <source>Beschreibung</source>
+                <target>Description</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_articles.price">
-                <source>Preis</source>
+                <target>Price</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_articles.image">
-                <source>Bild</source>
+                <target>Image</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_articles.cat">
-                <source>Kategorie</source>
+                <target>Category</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.msg_name">
-                <source>Bitte tragen Sie Ihren Namen ein</source>
+                <target>please enter your name</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.msg_strasse">
-                <source>Bitte tragen Sie Ihre Adresse ein</source>
+                <target>please enter your address</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.msg_ort">
-                <source>Bitte tragen Sie Ihren Ort ein</source>
+                <target>please enter your city</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.msg_email">
-                <source>Bitte ein gültige E-Mail eintragen</source>
+                <target>please enter a valid email address</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.msg_tel">
-                <source>Bitte tragen Sie Ihre Telefonummer ein</source>
+                <target>please enter your phone number</target>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.msg_ustid_de">
-                <source>Bitte eine gültige UST-Id Nummer mit mind. 11 Zeichen eintragen</source>
+                <target>please enter a valid UST-Id Nummer with at least 11 chars</target>
             </trans-unit>
-            <trans-unit id="tx_lvformmailer_domain_model_forms.msg_ustid_eu">
-                <source>Bitte eine gültige VAT-ID mit mind. 8 Zeichen eintragen</source>
+            <trans-unit id="tx_lvformmailer_domain_model_forms.msg_ustid_en">
+                <target>please enter a valid VAT-ID. with at least 8 chars</target>
             </trans-unit>
         </body>
     </file>

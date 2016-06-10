@@ -36,19 +36,19 @@ class FormsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	/**
 	 * createMails
 	 *
-	 * @param  $mail
-	 * @param  $settings
+	 * @param $mail
+	 * @param $settings
 	 * @array $data
 	 * @array $settings
 	 * @return
 	 */
 	public function createMail($mail, $settings) {
 		
-		        //$table = 'tx_lvformmailer_domain_model_mails';
+		        $table = 'tx_lvformmailer_domain_model_mails';
 		        //$pid = 64;
                         //
 		        $pid = $settings['defaultPid'];
-		        $table = $settings['tableMail'];
+		        //$table = $settings['tableMail'];
 		        $date = time();
 		        
 		        //var_dump($mail);

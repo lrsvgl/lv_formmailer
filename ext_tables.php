@@ -34,7 +34,7 @@ $TCA['tx_lvformmailer_domain_model_forms'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'formname,senderemail,sendername,receiveremail,receivername,subject,article,',
+		'searchFields' => 'formname,senderemail,sendername,receiveremail,receivername,subject,versandde,versandeu,mwst,article,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Forms.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_lvformmailer_domain_model_forms.gif'
 	),
@@ -97,6 +97,7 @@ $TCA['tx_lvformmailer_domain_model_articles'] = array(
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_lvformmailer_domain_model_articles.gif'
 	),
 );
+
 $pluginSignature = str_replace('_', '', $_EXTKEY) . '_formmailer';
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
 t3lib_extMgm::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_formmailer.xml');

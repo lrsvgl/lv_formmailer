@@ -1,7 +1,7 @@
 <?php
 namespace TYPO3\LvFormmailer\Domain\Repository;
 
-/***************************************************************
+/* * *************************************************************
  *  Copyright notice
  *
  *  (c) 2014 
@@ -22,7 +22,7 @@ namespace TYPO3\LvFormmailer\Domain\Repository;
  *  GNU General Public License for more details.
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
+ * ************************************************************* */
 
 /**
  *
@@ -33,5 +33,16 @@ namespace TYPO3\LvFormmailer\Domain\Repository;
  */
 class ArticlesRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
+	/**
+	 * defaultOrderings
+	 *
+	 * @var array
+	 */
+	protected $defaultOrderings = array(
+        'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+        'uid' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+    );
+
 }
+
 ?>

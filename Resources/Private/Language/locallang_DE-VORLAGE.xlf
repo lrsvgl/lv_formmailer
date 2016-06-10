@@ -46,7 +46,7 @@
                 <source>Firma</source>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.ust">
-                <source>UST-Id Nummer</source>
+                <source>Ust. ID</source>
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_forms.name">
                 <source>Name</source>
@@ -149,27 +149,6 @@
             </trans-unit>
             <trans-unit id="tx_lvformmailer_domain_model_articles.cat">
                 <source>Kategorie</source>
-            </trans-unit>
-            <trans-unit id="tx_lvformmailer_domain_model_forms.msg_name">
-                <source>Bitte tragen Sie Ihren Namen ein</source>
-            </trans-unit>
-            <trans-unit id="tx_lvformmailer_domain_model_forms.msg_strasse">
-                <source>Bitte tragen Sie Ihre Adresse ein</source>
-            </trans-unit>
-            <trans-unit id="tx_lvformmailer_domain_model_forms.msg_ort">
-                <source>Bitte tragen Sie Ihren Ort ein</source>
-            </trans-unit>
-            <trans-unit id="tx_lvformmailer_domain_model_forms.msg_email">
-                <source>Bitte ein gültige E-Mail eintragen</source>
-            </trans-unit>
-            <trans-unit id="tx_lvformmailer_domain_model_forms.msg_tel">
-                <source>Bitte tragen Sie Ihre Telefonummer ein</source>
-            </trans-unit>
-            <trans-unit id="tx_lvformmailer_domain_model_forms.msg_ustid_de">
-                <source>Bitte eine gültige UST-Id Nummer mit mind. 11 Zeichen eintragen</source>
-            </trans-unit>
-            <trans-unit id="tx_lvformmailer_domain_model_forms.msg_ustid_eu">
-                <source>Bitte eine gültige VAT-ID mit mind. 8 Zeichen eintragen</source>
             </trans-unit>
         </body>
     </file>

@@ -12,6 +12,9 @@ CREATE TABLE tx_lvformmailer_domain_model_forms (
 	receiveremail varchar(255) DEFAULT '' NOT NULL,
 	receivername varchar(255) DEFAULT '' NOT NULL,
 	subject varchar(255) DEFAULT '' NOT NULL,
+	versandde double(11,2) DEFAULT '0.00' NOT NULL,
+	versandeu double(11,2) DEFAULT '0.00' NOT NULL,
+	mwst double(11,2) DEFAULT '0.00' NOT NULL,
 	article int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,

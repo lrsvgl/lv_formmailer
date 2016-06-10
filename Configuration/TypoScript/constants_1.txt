@@ -1,0 +1,21 @@
+plugin.tx_lvformmailer {
+	view {
+		# cat=plugin.tx_lvformmailer/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:lv_formmailer/Resources/Private/Templates/
+		# cat=plugin.tx_lvformmailer/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:lv_formmailer/Resources/Private/Partials/
+		# cat=plugin.tx_lvformmailer/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:lv_formmailer/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_lvformmailer//a; type=string; label=Default storage PID
+		storagePid =
+	}
+    settings {
+        # cat=plugin.tx_lvformmailer//a; type=string; label=Default Versandkosten Deutschland
+        versandDE =
+        # cat=plugin.tx_lvformmailer//a; type=string; label=Default Versandkosten EU
+        versandEU =
+
+    }
+}

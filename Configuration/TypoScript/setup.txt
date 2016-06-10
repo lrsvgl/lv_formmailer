@@ -1,20 +1,20 @@
 plugin.tx_lvformmailer {
-	view {
-		templateRootPath = {$plugin.tx_lvformmailer.view.templateRootPath}
-		partialRootPath = {$plugin.tx_lvformmailer.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_lvformmailer.view.layoutRootPath}
-	}
-	persistence {
-		storagePid = {$plugin.tx_lvformmailer.persistence.storagePid}
-	}
-	features {
-		# uncomment the following line to enable the new Property Mapper.
-		# rewrittenPropertyMapper = 1
-	}
-        settings {
-            defaultPid = 64
-            tableMail = tx_lvformmailer_domain_model_mails
-        }
+    view {
+        templateRootPath = {$plugin.tx_lvformmailer.view.templateRootPath}
+        partialRootPath = {$plugin.tx_lvformmailer.view.partialRootPath}
+        layoutRootPath = {$plugin.tx_lvformmailer.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_lvformmailer.persistence.storagePid}
+    }
+    features {
+        # uncomment the following line to enable the new Property Mapper.
+        # rewrittenPropertyMapper = 1
+    }
+    settings {
+        defaultPid = 64
+        tableMail = tx_lvformmailer_domain_model_mails
+    }
 }
 
 page.includeJS.tx_lvformmailer90 = EXT:lv_formmailer/Resources/Public/js/jquery.validationEngine.js
@@ -23,7 +23,7 @@ page.includeJS.tx_lvformmailer91 = EXT:lv_formmailer/Resources/Public/js/languag
 plugin.tx_lvformmailer._CSS_DEFAULT_STYLE (
 /* formmailer */
 .tx-lv-formmailer {
-    
+
 }
 .tx-lv-formmailer h2 {
     font-weight: bold;
@@ -40,10 +40,10 @@ plugin.tx_lvformmailer._CSS_DEFAULT_STYLE (
    width: 160px;
    height: 30px;
    line-height: 30px;
-   clear: both; 
+   clear: both;
 }
 .tx-lv-formmailer input[type=text] {
-   display: block; 
+   display: block;
     float: left;
 }
 .tx-lv-formmailer textarea {
@@ -54,7 +54,7 @@ plugin.tx_lvformmailer._CSS_DEFAULT_STYLE (
 }
 .tx-lv-formmailer input[type=submit] {
 display: block;
-   clear: both; 
+   clear: both;
    margin-top: 20px;
 }
 .tx-lv-formmailer label.error {
@@ -64,8 +64,8 @@ display: block;
     font-size: 10px;
     margin-left: 160px;
 }
-.tx-lv-formmailer div.error { 
-        display: none; 
+.tx-lv-formmailer div.error {
+        display: none;
 }
 .tx-lv-formmailer input.error { border: 1px dotted red; }
 
@@ -118,7 +118,7 @@ display: block;
     background-color: #fbe5ef;
     border: 1px solid #fbe5ef;
 }
-.tx-lv-formmailer .data.personal label, 
+.tx-lv-formmailer .data.personal label,
 .tx-lv-formmailer .data.sum label{
     margin-right: 10px;
 }
@@ -127,7 +127,7 @@ display: block;
     padding-left: 170px;
 }
 .tx-lv-formmailer .data.submit label,
-.tx-lv-formmailer .data.submit input, 
+.tx-lv-formmailer .data.submit input,
 .tx-lv-formmailer .data.submit img{
     float: none;
     margin-bottom: 5px;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2014-01-20T08:47:22Z" product-name="lv_formmailer">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-04-09T13:09:47Z" product-name="lv_formmailer">
 		<header/>
 		<body>
 
@@ -21,6 +21,15 @@
 			</trans-unit>
 			<trans-unit id="subject.description">
 				<source>subject</source>
+			</trans-unit>
+			<trans-unit id="versandde.description">
+				<source>versandde</source>
+			</trans-unit>
+			<trans-unit id="versandeu.description">
+				<source>subjectversandeu</source>
+			</trans-unit>
+			<trans-unit id="mwst.description">
+				<source>subjectversandeu</source>
 			</trans-unit>
 			<trans-unit id="article.description">
 				<source>Artikel</source>

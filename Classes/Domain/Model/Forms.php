@@ -81,12 +81,36 @@ class Forms extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $subject;
 
 	/**
+	 * versandde
+	 *
+	 * @var \float
+	 * @validate NotEmpty
+	 */
+	protected $versandde;
+
+	/**
+	 * subjectversandeu
+	 *
+	 * @var \float
+	 * @validate NotEmpty
+	 */
+	protected $versandeu;
+
+	/**
 	 * Artikel
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\LvFormmailer\Domain\Model\Articles>
 	 * @lazy
 	 */
 	protected $article;
+
+	/**
+	 * subjectversandeu
+	 *
+	 * @var \float
+	 * @validate NotEmpty
+	 */
+	protected $mwst;
 
 	/**
 	 * Returns the formname
@@ -263,6 +287,63 @@ class Forms extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setArticle(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $article) {
 		$this->article = $article;
+	}
+
+	/**
+	 * Returns the versandde
+	 *
+	 * @return \float $versandde
+	 */
+	public function getVersandde() {
+		return $this->versandde;
+	}
+
+	/**
+	 * Sets the versandde
+	 *
+	 * @param \float $versandde
+	 * @return void
+	 */
+	public function setVersandde($versandde) {
+		$this->versandde = $versandde;
+	}
+
+	/**
+	 * Returns the versandeu
+	 *
+	 * @return \float versandeu
+	 */
+	public function getVersandeu() {
+		return $this->versandeu;
+	}
+
+	/**
+	 * Sets the versandeu
+	 *
+	 * @param \float $versandeu
+	 * @return \float versandeu
+	 */
+	public function setVersandeu($versandeu) {
+		$this->versandeu = $versandeu;
+	}
+
+	/**
+	 * Returns the mwst
+	 *
+	 * @return \float $mwst
+	 */
+	public function getMwst() {
+		return $this->mwst;
+	}
+
+	/**
+	 * Sets the mwst
+	 *
+	 * @param \float $mwst
+	 * @return void
+	 */
+	public function setMwst($mwst) {
+		$this->mwst = $mwst;
 	}
 
 }

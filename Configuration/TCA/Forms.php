@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_lvformmailer_domain_model_forms'] = array(
 	'ctrl' => $TCA['tx_lvformmailer_domain_model_forms']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, formname, senderemail, sendername, receiveremail, receivername, subject, article',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, formname, senderemail, sendername, receiveremail, receivername, subject, versandde, versandeu, mwst, article',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, formname, senderemail, sendername, receiveremail, receivername, subject, article,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, formname, senderemail, sendername, receiveremail, receivername, subject, versandde, versandeu, mwst, article,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -145,6 +145,33 @@ $TCA['tx_lvformmailer_domain_model_forms'] = array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim,required'
+			),
+		),
+		'versandde' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:lv_formmailer/Resources/Private/Language/locallang_db.xlf:tx_lvformmailer_domain_model_forms.versandde',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'double2,required'
+			),
+		),
+		'versandeu' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:lv_formmailer/Resources/Private/Language/locallang_db.xlf:tx_lvformmailer_domain_model_forms.versandeu',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'double2,required'
+			),
+		),
+		'mwst' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:lv_formmailer/Resources/Private/Language/locallang_db.xlf:tx_lvformmailer_domain_model_forms.mwst',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'double2,required'
 			),
 		),
 		'article' => array(

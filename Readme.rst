@@ -1,44 +1,15 @@
-=================
-lv_formmailer
+Extension Manual
 =================
 
-What does it do?
+This is a template manual aiming to pave the way to developers when it comes about documentation. The template provides a structure that a developer can take over and, in addition, many useful snippets and examples. Documentation is written in reST format. Refer to Help writing reStructuredText to get some more insight about the syntax and available reST editors. For instance, you might be particularly interested how you can :
 
 * generate the documentation using on-line services (@todo to write) 
-* provides an basic order form with
-* 3 categories for articles
-* from database (title, subtitle, richtext, price, image)
-* sends to a receiver and the user
+* `make links`_ accros projects
+* how you should write TypoScript reference.
 
-Install
+Any idea or suggestion for improving this template `can be drop`_ to our team_. And remember: documentation is like gift wrapping, it looks like superfluous, but your friend tends to be rather disappointed when their presents arrive in supermarket carrier bags. (Documentation-Driven Design quote)
 
-* unzip into TYPO3 /typo3conf/ext/
-* install in Extension manager
-* include static template
-* set storage pid in constants
-* go the the storage folder and create a record "Formmailer/Form"
-* go some page and insert a frontend plugin "formmailer" and
-* chose the form record of your choice
-* for using mulitple form records work width conditions in the fluid template, 
-* by requesting the form uid (this not tested yet)
-
-Configuration
-
-* set up your fields in the Fluid template /Resources/Forms/Show.html
-* there are 3 arrays provided to the controller: 
-* $form (the basic form), use keynames as you like (this may be changed in the future)
-* $articles (for some order stuff, this is not necessary - used for inqueries), don´t change key names
-* $total (if articles have prices, this is not necessary - used for inqueries), don´t change key names
-
-Todo
-
-* implement captcha service
-* test multiple forms
-* localisation
-* BE-Module for - i don´t know what
-
-Target
-
-* provide a basic extension for fast implementing forms
-* without configuring fields in IRRE
-* only in the fluid template
+.. _can be drop: http://forge.typo3.org/projects/typo3v4-official_extension_template/issues
+.. _team: http://forge.typo3.org/projects/typo3v4-official_extension_template
+.. _make links: RestructuredtextHelp.html#cross-linking
+.. _can write TypoScript: RestructuredtextHelp.html#typoscript-reference

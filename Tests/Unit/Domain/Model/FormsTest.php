@@ -4,7 +4,7 @@ namespace TYPO3\LvFormmailer\Tests;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2014 
+ *  (c) 2015 
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -148,6 +148,72 @@ class FormsTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 		$this->assertSame(
 			'Conceived at T3CON10',
 			$this->fixture->getSubject()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getVersanddeReturnsInitialValueForFloat() { 
+		$this->assertSame(
+			0.0,
+			$this->fixture->getVersandde()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setVersanddeForFloatSetsVersandde() { 
+		$this->fixture->setVersandde(3.14159265);
+
+		$this->assertSame(
+			3.14159265,
+			$this->fixture->getVersandde()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getVersandeuReturnsInitialValueForFloat() { 
+		$this->assertSame(
+			0.0,
+			$this->fixture->getVersandeu()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setVersandeuForFloatSetsVersandeu() { 
+		$this->fixture->setVersandeu(3.14159265);
+
+		$this->assertSame(
+			3.14159265,
+			$this->fixture->getVersandeu()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getMwstReturnsInitialValueForFloat() { 
+		$this->assertSame(
+			0.0,
+			$this->fixture->getMwst()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setMwstForFloatSetsMwst() { 
+		$this->fixture->setMwst(3.14159265);
+
+		$this->assertSame(
+			3.14159265,
+			$this->fixture->getMwst()
 		);
 	}
 	
